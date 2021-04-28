@@ -1,0 +1,595 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Sphinx and reStructuredText &mdash; Code documentation lesson  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/mystnb.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_lesson.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/minipres.js"></script>
+        <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Deploying Sphinx documentation to Read the Docs" href="../rtd/" />
+    <link rel="prev" title="Popular tools and solutions" href="../tools/" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../" class="icon icon-home"> Code documentation lesson
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">The lesson</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../wishlist/">Motivation and wishlist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/">Popular tools and solutions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sphinx and reStructuredText</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#group-exercise-build-sphinx-documentation-using-rst">Group exercise: Build Sphinx documentation using RST</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../rtd/">Deploying Sphinx documentation to Read the Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gh-pages/">Hosting websites/homepages on GitHub Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../in-code-documentation/">In-code documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../discussion/">Discussion after the exercises</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guide/">Instructor guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license/">Credit and license</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">Code documentation lesson</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Sphinx and reStructuredText</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/coderefinery/documentation/blob/main/content/sphinx.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sphinx-and-restructuredtext">
+<h1>Sphinx and reStructuredText<a class="headerlink" href="#sphinx-and-restructuredtext" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-questions questions admonition">
+<p class="admonition-title">Questions</p>
+<ul class="simple">
+<li><p>How do we get started on writing Sphinx documentation in RST?</p></li>
+</ul>
+</div>
+<div class="admonition-objectives objectives admonition">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Create example Sphinx documentation and learn some RST along the way.</p></li>
+</ul>
+</div>
+<div class="section" id="group-exercise-build-sphinx-documentation-using-rst">
+<h2>Group exercise: Build Sphinx documentation using RST<a class="headerlink" href="#group-exercise-build-sphinx-documentation-using-rst" title="Permalink to this headline">¶</a></h2>
+<p>We will take the first steps in creating documentation using Sphinx, and learn some
+RST syntax along the way.</p>
+<ul class="simple">
+<li><p>Our goal in this episode is to build HTML pages locally on our computers.</p></li>
+<li><p>In the next episode we will learn how to deploy the documentation to a cloud service
+upon every <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>.</p></li>
+<li><p>Please write your questions in the collaborative HackMD document so that we can answer
+them and discuss them together after the group sessions.</p></li>
+</ul>
+<div class="admonition-prerequisites-check-whether-we-have-the-software-we-need prereq admonition">
+<p class="admonition-title">Prerequisites: Check whether we have the software we need</p>
+<p>Before we start, make sure that Sphinx is part of your Python installation or
+environment. If you use Anaconda, you are set. If you use Miniconda or virtual
+environments, make sure Sphinx is installed into the Miniconda or virtual
+environment.</p>
+<p>Test Sphinx installation within Python:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python --version
+Python <span class="m">3</span>.7.0
+
+$ python -c <span class="s2">&quot;import sphinx; print(sphinx.__version__)&quot;</span>
+<span class="m">2</span>.0.1
+
+$ python -c <span class="s2">&quot;import sphinx_rtd_theme&quot;</span>
+<span class="c1"># this should produce no output</span>
+</pre></div>
+</div>
+</div>
+<p>Test Sphinx tool installation:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sphinx-quickstart --version
+sphinx-quickstart <span class="m">2</span>.0.1
+</pre></div>
+</div>
+<p>The the above commands produce an error
+instead of printing versions (any version would do)
+e.g. command not found or ModuleNotFoundError
+please follow our
+<a class="reference external" href="https://coderefinery.github.io/installation/python/#installing-required-packages">installation instructions</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+
+```{challenge} Exercise 1: Generate the basic documentation template
+
+
+Create a directory for the example documentation, step into it, and inside
+generate the basic documentation template:
+
+```shell
+$ mkdir doc-example
+$ cd doc-example
+$ sphinx-quickstart
+</pre></div>
+</div>
+<p>The quickstart utility will ask you some questions. For this exercise, you can go
+with the default answers except to specify a project name, author name, and project release:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">Separate</span> <span class="n">source</span> <span class="ow">and</span> <span class="n">build</span> <span class="n">directories</span> <span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span> <span class="p">[</span><span class="n">n</span><span class="p">]:</span> <span class="o">&lt;</span><span class="n">hit</span> <span class="n">enter</span><span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="n">Project</span> <span class="n">name</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">your</span> <span class="n">project</span> <span class="n">name</span><span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="n">Author</span> <span class="n">name</span><span class="p">(</span><span class="n">s</span><span class="p">):</span> <span class="o">&lt;</span><span class="n">your</span> <span class="n">name</span><span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="n">Project</span> <span class="n">release</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">]:</span> <span class="mf">0.1</span>
+<span class="o">&gt;</span> <span class="n">Project</span> <span class="n">language</span> <span class="p">[</span><span class="n">en</span><span class="p">]:</span> <span class="o">&lt;</span><span class="n">hit</span> <span class="n">enter</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>A couple of files and directories are created:</p>
+<table style="width:50%;">
+  <tr>
+    <th style="text-align: center; border: 1px solid black; padding: 3px; width:15%"> File/directory </th>
+    <th style="text-align: center; border: 1px solid black; padding: 3px; width:35%"> Contents </th>
+  </tr>
+  <tr>
+    <td style="text-align: left; border: 1px solid black; padding: 3px;"> conf.py </td>
+    <td style="text-align: left; border: 1px solid black; padding: 3px;"> Documentation configuration file </td>
+  </tr>
+  <tr>
+    <td style="text-align: left; border: 1px solid black; padding: 3px;"> index.rst </td>
+    <td style="text-align: left; border: 1px solid black; padding: 3px;"> Documentation master file </td>
+  </tr>
+  <tr>
+    <td style="text-align: left; border: 1px solid black; padding: 3px;"> _build/ </td>
+    <td style="text-align: left; border: 1px solid black; padding: 3px;"> Directory where docs are built </td>
+  </tr>
+  <tr>
+    <td style="text-align: left; border: 1px solid black; padding: 3px;"> _templates/ </td>
+    <td style="text-align: left; border: 1px solid black; padding: 3px;"> Your own HTML templates </td>
+  </tr>
+  <tr>
+    <td style="text-align: left; border: 1px solid black; padding: 3px;"> _static/ </td>
+    <td style="text-align: left; border: 1px solid black; padding: 3px;"> Static files (images, styles, etc.) copied to output directory on build </td>
+  </tr>
+  <tr>
+    <td style="text-align: left; border: 1px solid black; padding: 3px;"> Makefile & make.bat </td>
+    <td style="text-align: left; border: 1px solid black; padding: 3px;"> Makefiles to build documentation using make </td>
+  </tr>
+</table>
+<p><code class="docutils literal notranslate"><span class="pre">Makefile</span></code> and <code class="docutils literal notranslate"><span class="pre">make.bat</span></code> (for Windows) are build scripts that wrap the sphinx commands, but
+we will be doing it explicitly.</p>
+<p>Let’s have a look at the <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> file, which is the main file of your documentation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. myproject documentation master file, created by
+   sphinx-quickstart on Mon Oct 21 21:46:06 2019.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to myproject&#39;s documentation!
+=====================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>We will not use the <code class="docutils literal notranslate"><span class="pre">Indices</span> <span class="pre">and</span> <span class="pre">tables</span></code> section now, so remove it and everything below.</p></li>
+<li><p>The top four lines, starting with <code class="docutils literal notranslate"><span class="pre">..</span></code>, are a comment.</p></li>
+<li><p>The next lines are the table of contents. We can add content below:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">toctree</span><span class="p">::</span>
+   <span class="p">:</span><span class="n">maxdepth</span><span class="p">:</span> <span class="mi">2</span>
+   <span class="p">:</span><span class="n">caption</span><span class="p">:</span> <span class="n">Contents</span><span class="p">:</span>
+
+   <span class="n">feature</span><span class="o">-</span><span class="n">a</span>
+</pre></div>
+</div>
+<p>A common gotcha with directives is that <strong>the first line of the content must be indented to the same level as the options (i.e., :maxdepth)</strong>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">feature-a</span></code> refers to a file <code class="docutils literal notranslate"><span class="pre">feature-a.rst</span></code>. Let’s create it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Feature</span> <span class="n">A</span>
+<span class="o">=========</span>
+
+<span class="n">Subsection</span>
+<span class="o">----------</span>
+
+<span class="n">Exciting</span> <span class="n">documentation</span> <span class="ow">in</span> <span class="n">here</span><span class="o">.</span>
+<span class="n">Let</span><span class="s1">&#39;s make a list (empty surrounding lines required):</span>
+
+<span class="o">-</span> <span class="n">item</span> <span class="mi">1</span>
+
+  <span class="o">-</span> <span class="n">nested</span> <span class="n">item</span> <span class="mi">1</span>
+  <span class="o">-</span> <span class="n">nested</span> <span class="n">item</span> <span class="mi">2</span>
+
+<span class="o">-</span> <span class="n">item</span> <span class="mi">2</span>
+<span class="o">-</span> <span class="n">item</span> <span class="mi">3</span>
+</pre></div>
+</div>
+<p>We now build the site:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls
+
+_build  _static  _templates  conf.py  feature-a.rst  index.rst
+
+$ sphinx-build . _build
+
+Running Sphinx v1.5.1
+loading pickled environment... <span class="k">done</span>
+building <span class="o">[</span>mo<span class="o">]</span>: targets <span class="k">for</span> <span class="m">0</span> po files that are out of date
+building <span class="o">[</span>html<span class="o">]</span>: targets <span class="k">for</span> <span class="m">1</span> <span class="nb">source</span> files that are out of date
+updating environment: <span class="m">1</span> added, <span class="m">1</span> changed, <span class="m">0</span> removed
+reading sources... <span class="o">[</span><span class="m">100</span>%<span class="o">]</span> index
+looking <span class="k">for</span> now-outdated files... none found
+pickling environment... <span class="k">done</span>
+checking consistency... <span class="k">done</span>
+preparing documents... <span class="k">done</span>
+writing output... <span class="o">[</span><span class="m">100</span>%<span class="o">]</span> index
+generating indices... genindex
+writing additional pages... search
+copying static files... <span class="k">done</span>
+copying extra files... <span class="k">done</span>
+dumping search index <span class="k">in</span> English <span class="o">(</span>code: en<span class="o">)</span> ... <span class="k">done</span>
+dumping object inventory... <span class="k">done</span>
+build succeeded.
+
+$ ls _build
+
+_sources  _static  feature-a.html  genindex.html  index.html  objects.inv search.html  searchindex.js
+</pre></div>
+</div>
+<p>Now open the file <code class="docutils literal notranslate"><span class="pre">_build/index.html</span></code> in your browser by:</p>
+<p>Linux users type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ xdg-open _build/index.html
+</pre></div>
+</div>
+<p>macOS users type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ open _build/index.html
+</pre></div>
+</div>
+<p>Windows users type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ start _build/index.html
+</pre></div>
+</div>
+<p>Others:</p>
+<p>enter <code class="docutils literal notranslate"><span class="pre">file:///home/user/doc-example/_build/index.html</span></code> in your browser (adapting the path to your case).</p>
+<p>Hopefully you can now see a website. If so, then you are able to build Sphinx pages locally.
+This is useful to check how things look before pushing changes to GitHub or elsewhere.</p>
+<p>Note that you can change the styling by editing <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> and changing the value <code class="docutils literal notranslate"><span class="pre">html_theme</span></code>
+(for instance you can set it to <code class="docutils literal notranslate"><span class="pre">sphinx_rtd_theme</span></code> to have the Read the Docs look).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+```{challenge} Exercise 2: Add content to your example documentation
+
+
+1. Add a entry below feature-a labeled *feature-b* to the `index.rst` file.
+2. Create a file `feature-b.rst` in the same directory as your `feature-a.rst` file.
+3. Add some content to feature-b, rebuild with `sphinx-build`, and refresh the browser to look at the results
+   ([Help](http://docutils.sourceforge.net/docs/ref/rst/directives.html)).
+
+Experiment with the following RST syntax:
+
+- \*Emphasized text\* and \*\*bold text\*\*
+- Headings
+
+```text
+Level 1
+=======
+
+Level 2
+-------
+
+Level 3
+^^^^^^^
+
+Level 4
+&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>An image: <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">image::</span> <span class="pre">image.png</span></code></p></li>
+<li><p>`A link &lt;http://www.google.com&gt;`_</p></li>
+<li><p>Numbered lists (can be automatic using <code class="docutils literal notranslate"><span class="pre">#</span></code>)</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="n">item</span> <span class="mi">1</span>
+<span class="mf">2.</span> <span class="n">item</span> <span class="mi">2</span>
+<span class="c1">#. item 3</span>
+<span class="c1">#. item 4</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Simple tables</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">======</span> <span class="o">======</span>
+<span class="n">No</span><span class="o">.</span>    <span class="n">Prime</span>
+<span class="o">======</span> <span class="o">======</span>
+<span class="mi">1</span>      <span class="n">No</span>
+<span class="mi">2</span>      <span class="n">Yes</span>
+<span class="mi">3</span>      <span class="n">Yes</span>
+<span class="mi">4</span>      <span class="n">No</span>
+<span class="o">======</span> <span class="o">======</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Code block using special marker <code class="docutils literal notranslate"><span class="pre">::</span></code></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">following</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">code</span> <span class="n">block</span><span class="p">::</span>
+
+  <span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Code block specifying syntax highlighting for other language than Python</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="p">::</span> <span class="n">c</span>
+
+   <span class="c1">#include &lt;stdio.h&gt;</span>
+   <span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+   <span class="p">{</span>
+       <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">);</span>
+       <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>You could include the contents of an external file using <code class="docutils literal notranslate"><span class="pre">literalinclude</span></code> directive, as follows:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">literalinclude</span><span class="p">::</span> <span class="n">filename</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>It is possible to combine <code class="docutils literal notranslate"><span class="pre">literalinclude</span></code> with code highlighting, line numbering, and even line highlighting.</p></li>
+<li><p>We can also use jupyter notebooks (*.ipynb) with sphinx. It requires <code class="docutils literal notranslate"><span class="pre">nbsphinx</span></code> extension to be installed. See <a class="reference external" href="http://nbsphinx.readthedocs.io/en/latest/">nbsphinx documentation</a> for more information</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">toctree</span><span class="p">::</span>
+   <span class="p">:</span><span class="n">maxdepth</span><span class="p">:</span> <span class="mi">2</span>
+   <span class="p">:</span><span class="n">caption</span><span class="p">:</span> <span class="n">Contents</span><span class="p">:</span>
+
+   <span class="n">feature</span><span class="o">-</span><span class="n">a</span>
+   <span class="o">&lt;</span><span class="n">python_notebook_name</span><span class="o">&gt;.</span><span class="n">ipynb</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+```{callout} Rendering (LaTeX) math equations
+
+
+There are two different ways to display mathematical equations within Sphinx:
+`pngmath` and `MathJax`.  While `pngmath` displays an equation as an image,
+`MathJax` is using scalable vector graphics (quality remains the same after
+zooming). For this reason, we strongly encourage you to use `MathJax` for
+your mathematical equations.
+
+To enable `MathJax` in Sphinx, you need first to add `sphinx.ext.mathjax` to
+the list of extensions in `conf.py`:
+
+```shell
+extensions = [&#39;sphinx.ext.mathjax&#39;]
+</pre></div>
+</div>
+<p>The following shows how to inline mathematics within a text:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>This is an inline equation embedded :math:`a^2 + b^2 = c^2` in text.
+</pre></div>
+</div>
+<p>An equation and equation array:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">math</span><span class="p">::</span>
+   <span class="p">:</span><span class="n">label</span><span class="p">:</span> <span class="n">myequation</span>
+
+   <span class="n">a</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">^</span><span class="mi">2</span> <span class="o">=</span> <span class="n">c</span><span class="o">^</span><span class="mi">2</span>
+
+<span class="o">..</span> <span class="n">math</span><span class="p">::</span>
+   <span class="p">:</span><span class="n">label</span><span class="p">:</span> <span class="n">myarray</span>
+
+   \<span class="n">begin</span><span class="p">{</span><span class="n">eqnarray</span><span class="p">}</span>
+     <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">&amp;</span> <span class="p">:</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> \\
+     <span class="n">x</span><span class="o">^</span><span class="mi">3</span> <span class="o">&amp;</span> <span class="p">:</span> <span class="n">x</span> \<span class="n">ge</span> <span class="mi">0</span> \\
+   \<span class="n">end</span><span class="p">{</span><span class="n">eqnarray</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>These equations can then be referenced using <code class="docutils literal notranslate"><span class="pre">:eq:`myequation`</span> </code> and <code class="docutils literal notranslate"><span class="pre">:eq:`myarray`</span> </code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+---
+
+### Where to find more
+
+- For more RST functionality, see the [Sphinx documentation](http://www.sphinx-doc.org/en/stable/rest.html)
+  and the [quick-reference](http://docutils.sourceforge.net/docs/user/rst/quickref.html).
+- For Sphinx additions to standard RST, see [Sphinx Markup Constructs](http://www.sphinx-doc.org/en/1.7/markup/index.html).
+- [https://docs.python-guide.org/writing/documentation/](https://docs.python-guide.org/writing/documentation/)
+
+---
+
+```{keypoints}
+- Sphinx and RST are relatively lightweight options for writing documentation.
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../rtd/" class="btn btn-neutral float-right" title="Deploying Sphinx documentation to Read the Docs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../tools/" class="btn btn-neutral float-left" title="Popular tools and solutions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, CodeRefinery team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
